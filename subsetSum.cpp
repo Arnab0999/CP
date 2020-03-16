@@ -22,28 +22,14 @@ int generateComb(int n,int k,int m){
         for (int j = 0; j < ans[i].size(); j++) { 
             sum += ans.at(i).at(j); 
         } 
-        if(sum==m)
+        if(sum%m==0)
             count++;
         sum=0;
     }
     return count;
 }
 int findCount(int n,int k,int m){
-    if(k==0 || k>n)
-        return 0;
-    if(k==1 && m<=n)
-        return 1;
-    int sum = 0;
-    for(int i=1;i<=k;i++){
-        sum+=i;
-    }
-    int count = 0;
-    if(k==n){
-        if(sum==m)
-            return 1;
-        return 0;
-    }
-    count=generateComb(n,k,m);
+    int count=generateComb(n,k,m);
     return count;
 }
 
